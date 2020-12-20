@@ -1,0 +1,17 @@
+architectures:
+  x86_64: true
+platforms:
+  kvm: true
+specification: '0.4'
+unikraft:
+  source: https://github.com/unikraft/unikraft.git
+  version: staging
+
+libraries:
+  newlib: '0.4'
+  ukkref:
+    source: https://github.com/Dylmay/unikraft-lib-kref.git
+    version: staging
+  ukradix:
+    source: https://github.com/Dylmay/unikraft-lib-radix.git
+    version: staging
