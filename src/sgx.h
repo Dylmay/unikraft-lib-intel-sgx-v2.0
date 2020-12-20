@@ -60,6 +60,7 @@
 #ifndef __ARCH_INTEL_SGX_H__
 #define __ARCH_INTEL_SGX_H__
 
+#include "sgx_uk.h"
 #include "sgx_user.h"
 #include <linux/kref.h>
 #include <linux/version.h>
