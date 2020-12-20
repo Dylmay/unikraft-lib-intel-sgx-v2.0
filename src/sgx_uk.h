@@ -11,6 +11,7 @@
 #include <uk/list.h>
 #include <uk/radixtree.h>
 #include <uk/kref.h>
+#include <uk/tree.h>
 #include <sys/types.h>
 #include <uk/mutex.h>
 /* End of header includes */
@@ -29,6 +30,7 @@
 ////////////////////////////////////////////////////////////////////////////////
 /* uk/bitops.h name defines */
 # define BIT UK_BIT
+# define BIT_ULL UK_BIT_ULL
 # define find_first_zero_bit uk_find_first_zero_bit
 # define find_first_bit uk_find_first_bit
 # define set_bit uk_set_bit
@@ -49,6 +51,7 @@
 # define u64 __u64
 # define u32 __u32
 # define u16 __u16
+# define u8  __u8
 # define PAGE_SIZE __PAGE_SIZE
 # define PAGE_SHIFT __PAGE_SHIFT
 # define PAGE_MASK __PAGE_MASK
