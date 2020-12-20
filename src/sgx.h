@@ -62,14 +62,14 @@
 
 #include "sgx_uk.h"
 #include "sgx_user.h"
-#include <linux/kref.h>
-#include <linux/version.h>
+//#include <linux/kref.h>
+//#include <linux/version.h>
 #include <linux/rbtree.h>
-#include <linux/rwsem.h>
-#include <linux/sched.h>
-#include <linux/workqueue.h>
-#include <linux/mmu_notifier.h>
-#include <linux/radix-tree.h>
+//#include <linux/rwsem.h>
+//#include <linux/sched.h>
+//#include <linux/workqueue.h>
+//#include <linux/mmu_notifier.h>
+//#include <linux/radix-tree.h>
 #include "sgx_arch.h"
 
 #define SGX_EINIT_SPIN_COUNT	20

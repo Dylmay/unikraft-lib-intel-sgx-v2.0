@@ -1,6 +1,10 @@
 # Prerequisites
 *.d
 
+# Unikraft files
+build/
+.config*
+
 # Object files
 *.o
 *.ko

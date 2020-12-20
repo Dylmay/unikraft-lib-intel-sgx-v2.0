@@ -59,14 +59,10 @@
  */
 
 #include "sgx.h"
-#include <linux/highmem.h>
-#include <linux/shmem_fs.h>
-#if (LINUX_VERSION_CODE >= KERNEL_VERSION(4,11,0))
-	#include <linux/sched/signal.h>
-#else
-	#include <linux/signal.h>
-#endif
-#include "linux/file.h"
+//#include <linux/highmem.h>
+//#include <linux/shmem_fs.h>
+#include <sys/signal.h>
+#include <sys/file.h>
 
 struct page *sgx_get_backing(struct sgx_encl *encl,
 			     struct sgx_encl_page *entry,

@@ -58,16 +58,17 @@
  * Sean Christopherson <sean.j.christopherson@intel.com>
  */
 
+#include "sgx_uk.h"
 #include "sgx.h"
-#include <linux/acpi.h>
-#include <linux/file.h>
-#include <linux/highmem.h>
-#include <linux/miscdevice.h>
-#include <linux/module.h>
-#include <linux/suspend.h>
-#include <linux/hashtable.h>
-#include <linux/kthread.h>
-#include <linux/platform_device.h>
+//#include <linux/acpi.h>
+#include <sys/file.h>
+//#include <linux/highmem.h>
+//#include <linux/miscdevice.h>
+//#include <linux/module.h>
+//#include <linux/suspend.h>
+//#include <linux/hashtable.h>
+//#include <linux/kthread.h>
+//#include <linux/platform_device.h>
 
 #define DRV_DESCRIPTION "Intel SGX Driver"
 #define DRV_VERSION "0.10"
@@ -75,9 +76,9 @@
 #define ENCL_SIZE_MAX_64 (64ULL * 1024ULL * 1024ULL * 1024ULL)
 #define ENCL_SIZE_MAX_32 (2ULL * 1024ULL * 1024ULL * 1024ULL)
 
-MODULE_DESCRIPTION(DRV_DESCRIPTION);
-MODULE_AUTHOR("Jarkko Sakkinen <jarkko.sakkinen@linux.intel.com>");
-MODULE_VERSION(DRV_VERSION);
+//MODULE_DESCRIPTION(DRV_DESCRIPTION);
+//MODULE_AUTHOR("Jarkko Sakkinen <jarkko.sakkinen@linux.intel.com>");
+//MODULE_VERSION(DRV_VERSION);
 #ifndef X86_FEATURE_SGX
 #define X86_FEATURE_SGX (9 * 32 + 2)
 #endif

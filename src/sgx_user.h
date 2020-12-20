@@ -60,8 +60,8 @@
 #ifndef _UAPI_ASM_X86_SGX_H
 #define _UAPI_ASM_X86_SGX_H
 
-#include <linux/types.h>
-#include <linux/ioctl.h>
+#include <sys/types.h>
+#include <sys/ioctl.h>
 
 #define SGX_MAGIC 0xA4
 
