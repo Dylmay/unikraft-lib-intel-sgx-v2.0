@@ -403,6 +403,7 @@ static struct acpi_device_id sgx_device_ids[] = {
 MODULE_DEVICE_TABLE(acpi, sgx_device_ids);
 #endif
 
+/*
 static struct platform_driver sgx_drv = {
 	.probe = sgx_drv_probe,
 	.remove = sgx_drv_remove,
@@ -412,29 +413,32 @@ static struct platform_driver sgx_drv = {
 		.acpi_match_table	= ACPI_PTR(sgx_device_ids),
 	},
 };
+*/
 
+/*
 #if (LINUX_VERSION_CODE > KERNEL_VERSION(3, 10, 0))
 module_platform_driver(sgx_drv);
 #else
 static struct platform_device *pdev;
 int init_sgx_module(void)
 {
-	platform_driver_register(&sgx_drv);
-	pdev = platform_device_register_simple("intel_sgx", 0, NULL, 0);
-	if (IS_ERR(pdev))
-		pr_err("platform_device_register_simple failed\n");
-	return 0;
+    platform_driver_register(&sgx_drv);
+    pdev = platform_device_register_simple("intel_sgx", 0, NULL, 0);
+    if (IS_ERR(pdev))
+        pr_err("platform_device_register_simple failed\n");
+    return 0;
 }
 
 void cleanup_sgx_module(void)
 {
-	dev_set_uevent_suppress(&pdev->dev, true);
-	platform_device_unregister(pdev);
-	platform_driver_unregister(&sgx_drv);
+    dev_set_uevent_suppress(&pdev->dev, true);
+    platform_device_unregister(pdev);
+    platform_driver_unregister(&sgx_drv);
 }
 
 module_init(init_sgx_module);
 module_exit(cleanup_sgx_module);
 #endif
+*/
 
-MODULE_LICENSE("Dual BSD/GPL");
+//MODULE_LICENSE("Dual BSD/GPL");

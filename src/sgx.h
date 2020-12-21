@@ -141,13 +141,13 @@ struct sgx_encl {
 	unsigned long base;
 	unsigned long size;
 	struct list_head va_pages;
-	struct radix_tree_root page_tree;
+	struct radix_tree page_tree;
 	struct list_head add_page_reqs;
-	struct work_struct add_page_work;
+	struct list_head/*work_struct*/ add_page_work;
 	struct sgx_encl_page secs_page;
 	struct sgx_tgid_ctx *tgid_ctx;
 	struct list_head encl_list;
-	struct mmu_notifier mmu_notifier;
+	//struct mmu_notifier mmu_notifier;
 };
 
 struct sgx_epc_bank {

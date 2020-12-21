@@ -18,7 +18,6 @@
 ////////////////////////////////////////////////////////////////////////////////
 /* linux/asm.h definitions */
 # define _EXPAND_EXTABLE_HANDLE(x) #x
-
 # define _ASM_EXTABLE(from, to)						\
 	" .pushsection \"__ex_table\",\"a\"\n"				\
 	" .balign 4\n"							\
@@ -31,6 +30,7 @@
 /* uk/bitops.h name defines */
 # define BIT UK_BIT
 # define BIT_ULL UK_BIT_ULL
+# define GENMASK_ULL UK_GENMASK_ULL
 # define find_first_zero_bit uk_find_first_zero_bit
 # define find_first_bit uk_find_first_bit
 # define set_bit uk_set_bit

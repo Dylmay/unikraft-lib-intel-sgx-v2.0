@@ -65,6 +65,7 @@
 //#include <linux/err.h>
 //#include <linux/types.h>
 #include "sgx_uk.h"
+#include <uk/asm.h>
 
 #define SGX_CPUID		0x12
 
