@@ -151,14 +151,14 @@ struct sgx_encl {
 };
 
 struct sgx_epc_bank {
-#ifdef CONFIG_X86_64
+//#ifdef CONFIG_X86_64
 	void *mem;
-#endif
+//#endif
 	unsigned long start;
 	unsigned long end;
 };
 
-extern struct workqueue_struct *sgx_add_page_wq;
+//extern struct workqueue_struct *sgx_add_page_wq;
 extern struct sgx_epc_bank sgx_epc_banks[];
 extern int sgx_nr_epc_banks;
 extern u64 sgx_encl_size_max_32;
@@ -167,7 +167,7 @@ extern u64 sgx_xfrm_mask;
 extern u32 sgx_ssaframesize_tbl[64];
 extern bool sgx_has_sgx2;
 
-extern const struct vm_operations_struct sgx_vm_ops;
+//extern const struct vm_operations_struct sgx_vm_ops;
 extern atomic_t sgx_nr_pids;
 
 #define sgx_pr_ratelimited(level, encl, fmt, ...)			  \
@@ -194,22 +194,20 @@ struct page *sgx_get_backing(struct sgx_encl *encl,
 void sgx_put_backing(struct page *backing, bool write);
 void sgx_insert_pte(struct sgx_encl *encl,
 		    struct sgx_encl_page *encl_page,
-		    struct sgx_epc_page *epc_page,
-		    struct vm_area_struct *vma);
+		    struct sgx_epc_page *epc_page
+		    /*,struct vm_area_struct *vma*/);
 int sgx_eremove(struct sgx_epc_page *epc_page);
-struct vm_area_struct *sgx_find_vma(struct sgx_encl *encl, unsigned long addr);
-void sgx_zap_tcs_ptes(struct sgx_encl *encl,
-		      struct vm_area_struct *vma);
+//struct vm_area_struct *sgx_find_vma(struct sgx_encl *encl, unsigned long addr);
+void sgx_zap_tcs_ptes(struct sgx_encl *encl/*,struct vm_area_struct *vma*/);
 void sgx_invalidate(struct sgx_encl *encl, bool flush_cpus);
 void sgx_flush_cpus(struct sgx_encl *encl);
-int sgx_find_encl(struct mm_struct *mm, unsigned long addr,
-		  struct vm_area_struct **vma);
+int sgx_find_encl(struct mm_struct *mm, unsigned long addr/*,struct vm_area_struct **vma*/);
 
 enum sgx_fault_flags {
 	SGX_FAULT_RESERVE	= BIT(0),
 };
 
-struct sgx_encl_page *sgx_fault_page(struct vm_area_struct *vma,
+struct sgx_encl_page *sgx_fault_page(/*struct vm_area_struct *vma,*/
 				     unsigned long addr,
 				     unsigned int flags);
 

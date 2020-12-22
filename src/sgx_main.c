@@ -104,6 +104,7 @@ long sgx_compat_ioctl(struct file *filep, unsigned int cmd, unsigned long arg)
 }
 #endif
 
+/*
 static int sgx_mmap(struct file *file, struct vm_area_struct *vma)
 {
 	vma->vm_ops = &sgx_vm_ops;
@@ -112,7 +113,9 @@ static int sgx_mmap(struct file *file, struct vm_area_struct *vma)
 
 	return 0;
 }
+*/
 
+/*
 static unsigned long sgx_get_unmapped_area(struct file *file,
 					   unsigned long addr,
 					   unsigned long len,
@@ -125,7 +128,7 @@ static unsigned long sgx_get_unmapped_area(struct file *file,
 	/* On 64-bit architecture, allow mmap() to exceed 32-bit encl
 	 * limit only if the task is not running in 32-bit compatibility
 	 * mode.
-	 */
+	 *
 	if (len > sgx_encl_size_max_32)
 #ifdef CONFIG_X86_64
 		if (test_thread_flag(TIF_ADDR32))
@@ -139,8 +142,7 @@ static unsigned long sgx_get_unmapped_area(struct file *file,
 		return -EINVAL;
 #endif
 
-	addr = current->mm->get_unmapped_area(file, addr, 2 * len, pgoff,
-					      flags);
+	addr = current->mm->get_unmapped_area(file, addr, 2 * len, pgoff,flags);
 	if (IS_ERR_VALUE(addr))
 		return addr;
 
@@ -148,7 +150,9 @@ static unsigned long sgx_get_unmapped_area(struct file *file,
 
 	return addr;
 }
+*/
 
+/*
 static const struct file_operations sgx_fops = {
 	.owner			= THIS_MODULE,
 	.unlocked_ioctl		= sgx_ioctl,
@@ -158,13 +162,17 @@ static const struct file_operations sgx_fops = {
 	.mmap			= sgx_mmap,
 	.get_unmapped_area	= sgx_get_unmapped_area,
 };
+ */
 
+/*
 static struct miscdevice sgx_dev = {
 	.name	= "isgx",
 	.fops	= &sgx_fops,
 	.mode   = 0666,
 };
+*/
 
+/*
 static int sgx_init_platform(void)
 {
 	unsigned int eax, ebx, ecx, edx;
@@ -228,7 +236,7 @@ static int sgx_init_platform(void)
 		}
 	} while (sgx_nr_epc_banks < SGX_MAX_EPC_BANKS);
 
-	/* There should be at least one EPC area or something is wrong. */
+	// There should be at least one EPC area or something is wrong.
 	if (!sgx_nr_epc_banks) {
 		WARN_ON(1);
 		return 1;
@@ -236,7 +244,9 @@ static int sgx_init_platform(void)
 
 	return 0;
 }
+*/
 
+/*
 static int sgx_pm_suspend(struct device *dev)
 {
 	struct sgx_tgid_ctx *ctx;
@@ -255,15 +265,19 @@ static int sgx_pm_suspend(struct device *dev)
 
 	return 0;
 }
+*/
 
+/*
 static int sgx_pm_resume(struct device *dev)
 {
 	ksgxswapd_tsk = kthread_run(ksgxswapd, NULL, "kswapd");
 	return 0;
 }
+ */
 
-static SIMPLE_DEV_PM_OPS(sgx_drv_pm, sgx_pm_suspend, sgx_pm_resume);
+//static SIMPLE_DEV_PM_OPS(sgx_drv_pm, sgx_pm_suspend, sgx_pm_resume);
 
+/*
 static int sgx_dev_init(struct device *dev)
 {
 	unsigned int wq_flags;
@@ -329,7 +343,9 @@ out_iounmap:
 #endif
 	return ret;
 }
+*/
 
+/*
 static int sgx_drv_probe(struct platform_device *pdev)
 {
 	unsigned int eax, ebx, ecx, edx;
@@ -402,6 +418,7 @@ static struct acpi_device_id sgx_device_ids[] = {
 };
 MODULE_DEVICE_TABLE(acpi, sgx_device_ids);
 #endif
+*/
 
 /*
 static struct platform_driver sgx_drv = {

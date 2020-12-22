@@ -15,6 +15,10 @@
 #include <sys/types.h>
 #include <uk/mutex.h>
 /* End of header includes */
+typedef unsigned long pte_t;
+typedef struct page *pgtable_t;
+typedef unsigned int /*__bitwise*/ gfp_t;
+#define pgoff_t unsigned long
 ////////////////////////////////////////////////////////////////////////////////
 /* linux/asm.h definitions */
 # define _EXPAND_EXTABLE_HANDLE(x) #x
@@ -103,7 +107,7 @@
 #define kref_put uk_kref_put
 #define kref_put_lock uk_kref_put_lock
 #define kref_sub uk_kref_sub
-#define kref_get_unless_zero uk_get_unless_zero
+#define kref_get_unless_zero uk_kref_get_unless_zero
 #define kref_put_mutex uk_kref_put_mutex
 /* End of uk/kref.h name defines */
 ////////////////////////////////////////////////////////////////////////////////
@@ -111,6 +115,7 @@
 #define pr_err uk_pr_err
 #define pr_warn uk_pr_warn
 #define pr_info uk_pr_info
+#define pr_debug uk_pr_debug
 #define BUG_ON UK_BUGON
 /* End of pr_err name defines */
 ////////////////////////////////////////////////////////////////////////////////
